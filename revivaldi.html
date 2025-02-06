@@ -157,5 +157,16 @@
             </audio>
         </div>
     </main>
+    <script>
+        document.querySelectorAll('audio').forEach(audio => {
+            audio.addEventListener('play', function() {
+                document.querySelectorAll('audio').forEach(otherAudio => {
+                    if (otherAudio !== audio) {
+                        otherAudio.pause();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
