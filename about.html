@@ -47,6 +47,35 @@
             width: 100%;
             bottom: 0;
         }
+        .contact-form {
+            margin-top: 2rem;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 <body>
@@ -55,19 +84,48 @@
     </header>
     <nav>
         <a href="index.html">Home</a>
-        <a href="https://theenglishlab.github.io/The_English_Lab/projects.html">Projects</a>
         <a href="about.html">About</a>
+        <a href="https://theenglishlab.github.io/The_English_Lab/projects.html">Projects</a>
     </nav>
     <main>
         <div class="content">
             <h2>About Us</h2>
             <p style="text-align: justify;">
-                The English Lab was founded in February 2025 to create a welcoming space where students' work could shine. This initiative, rooted in the Science Department of the University of Le Mans, is all about celebrating the projects students undertake as part of their English course. These projects span various fields, from acoustics and STEPS (Sport and Exercise Science) to actuarial science and IT, with more to come. Feel free to explore the website and see what they've been up to!
+                In February 2025, a passionate university English teacher founded The English Lab to create a welcoming space where students' work could shine. This initiative, rooted in the Science Department of the University of Le Mans, is all about celebrating the projects students undertake as part of their English course. These projects span various fields, from acoustics and STEPS (Sport and Exercise Science) to actuarial science and IT, with more to come. Feel free to explore the website and see what they've been up to!
             </p>
+            <div class="contact-form">
+                <h2>Contact Page Authors</h2>
+                <form id="contactForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br><br>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea><br><br>
+                    
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div>
     </main>
     <footer>
         <p>&copy; 2025 The English Lab. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            const mailtoLink = `mailto:theenglishlab72@gmail.com?subject=Contact%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom:%20${encodeURIComponent(email)}`;
+            
+            window.location.href = mailtoLink;
+        });
+    </script>
 </body>
 </html>
